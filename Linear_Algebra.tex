@@ -1,0 +1,50 @@
+
+\documentclass[UTF8]{report}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ctex}
+\author{Jinlin Bai}
+\title{Linear Algebra Note}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\newtheorem{define}{定义}
+	\newtheorem{theorem}{定理}
+	\chapter{线性代数中的线性方程组}
+	\begin{itemize}
+		\item $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b \quad a \textrm{ and } b\in \mathbb{R}$
+		\item 相容指线性方程组有一个解或无穷多个解 
+		\item 行变换可逆
+		\item \begin{define}
+			\begin{tabular}{|c|c|}
+				\hline
+				阶梯型矩阵 & $\begin{bmatrix}
+					\blacksquare & * & * & * & * \\
+					0 & \blacksquare & * & * & * \\
+					0 & 0 & 0 & \blacksquare & *
+				\end{bmatrix}$ \\
+				\hline
+				简化阶梯型矩阵 & $\begin{bmatrix}
+					1 & 0 & 0 & * & * \\
+					0 & 1 & 0 & * & * \\
+					0 & 0 & 1 & * & *
+				\end{bmatrix}$\\
+				\hline
+			\end{tabular}
+		\end{define}
+		\item \begin{theorem}
+			每个矩阵行等于唯一的简化阶梯型矩阵
+		\end{theorem}
+		\item \begin{define}
+			矩阵中的\textbf{主元位置}是$A$中对应与它的阶梯型中的先导元素的位置，\textbf{主元列}是$A$的含有\textit{主元位置}的列
+		\end{define}
+		\item \begin{define}
+			对应主元列的变量称为基本变量，其他变量称为自由变量
+			\end{define}
+		\item \begin{theorem}[存在与唯一性定理]
+			线性方程组相容的必要充分条件是增广矩阵的最右列不是主元列，也就是说，增广矩阵没有形如$\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix}\quad b \neq 0$的行
+		\end{theorem}
+	\end{itemize}
+\end{document}
