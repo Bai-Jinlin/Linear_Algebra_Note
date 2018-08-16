@@ -1,21 +1,24 @@
 \documentclass[UTF8]{report}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{ctex}
+\usepackage{ctex,amssymb,amsmath,amsfonts}
+
 \author{Jinlin Bai}
 \title{Linear Algebra Note}
+
+\newtheorem{define}{定义}
+\newtheorem{theorem}{定理}
 \begin{document}
 	\maketitle
 	\tableofcontents
 	\newpage
-	\newtheorem{define}{定义}
-	\newtheorem{theorem}{定理}
+
 	\chapter{线性代数中的线性方程组}
 	\begin{itemize}
 		\item $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b \quad a \textrm{ and } b\in \mathbb{R}$
+		
 		\item 相容指线性方程组有一个解或无穷多个解 
+		
 		\item 行变换可逆
+		
 		\item \begin{define}
 			\begin{tabular}{|c|c|}
 				\hline
@@ -33,18 +36,23 @@
 				\hline
 			\end{tabular}
 		\end{define}
+	
 		\item \begin{theorem}
 			每个矩阵行等于唯一的简化阶梯型矩阵
 		\end{theorem}
+	
 		\item \begin{define}
 			矩阵中的\textbf{主元位置}是$A$中对应与它的阶梯型中的先导元素的位置，\textbf{主元列}是$A$的含有\textit{主元位置}的列
 		\end{define}
+	
 		\item \begin{define}
 			对应主元列的变量称为基本变量，其他变量称为自由变量
 			\end{define}
+		
 		\item \begin{theorem}[存在与唯一性定理]
 			线性方程组相容的必要充分条件是增广矩阵的最右列不是主元列，也就是说，增广矩阵没有形如$\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix}\quad b \neq 0$的行
 		\end{theorem}
+	
 		\item 仅含一列的矩阵称为\textbf{列向量}，或简称\textbf{向量}，包含两个元素的向量如下所示。
 		\begin{displaymath}
 		w=\begin{bmatrix}
@@ -52,5 +60,63 @@
 		w_2
 		\end{bmatrix}
 		\end{displaymath}其中$w_1$和$w_2$是任意实数，两个元素的向量记为$\mathbb{R}^2$
+		
+		\item 向量加法
+		\begin{displaymath}
+		u=\begin{bmatrix} 1 \\ 2 \end{bmatrix}\quad v=\begin{bmatrix} -2 \\ 5 \end{bmatrix} \quad u+v= \begin{bmatrix}1+2\\ -2+5 \end{bmatrix}=\begin{bmatrix}
+		3 \\ 5\end{bmatrix}
+		\end{displaymath}
+		
+		\item 向量$u$与实数$c$的乘法叫\textbf{标量乘法}
+		\begin{displaymath}
+		c=5 \quad u=\begin{bmatrix} 3 \\ -1 \end{bmatrix}\quad cu=5\begin{bmatrix} 3 \\-1 \end{bmatrix}=\begin{bmatrix}15 \\ -5 \end{bmatrix}
+		\end{displaymath}
+		
+		\item 给定$\mathbb{R}^n$中的向量$v_1\,v_2\cdots\,v_p$和标量$c_1\,c_2\cdots\,c_p$向量$y=c_1v_1+c_2v_2\cdots+c_pv_p$称向量$v_1\,v_2\cdots\, v_p$以标量$c_1\,c_2\cdots\,c_p$为权的\textbf{线性组合}
+		
+		\item \begin{define}
+			若$v_1\,v_2\cdots\,v_p$是$\mathbb{R}^n$中的向量，则$v_1\,v_2\cdots\,v_p$的所有线性组合成的集合用记号$Span\{v_1\,v_2\cdots\,v_p\}$称由$v_1\,v_2\cdots\,v_p$所生成（或张成）的$\mathbb{R}^n$的子集
+			\end{define}
+		
+		\item 判断向量$b$是否属于$Span\{v_1\,v_2\cdots\,v_p\}$就是判断向量方程$ x_1v_1+x_2v_2+\cdots+x_pv_p=b $是否有解
+		
+		\item 可以把向量的线性组合看作矩阵与相连的积\begin{define}
+			若$ A $是$ m \times n $矩阵，它的各列为$ a_1,\cdots,a_n $，若$ x $是$ \mathbb{R}^n $中的向量，则$ A $与$ x $的积，记为$ Ax $，就是$ A $的各列以$ x $中对应元素为权的线性组合，即\begin{displaymath}
+			Ax=\begin{bmatrix} a_1\,a_2\,\cdots\,a_n\end{bmatrix} \begin{bmatrix} x_1 \\ x_ 2 \\ \vdots \\ x_n\end{bmatrix} = 
+			x_1a_1+x_2a_2+\cdots+x_na_n
+			\end{displaymath}
+		\end{define}%称这样的方程为\textbf{矩阵方程}，任何线性方程组都可以写成等价的矩阵方程
+	
+		\item \begin{theorem}
+			若$ A $是$ m \times n $矩阵，它的各列为为$ a_1,\cdots,a_n $，而$ b \in \mathbb{R}^n $，则矩阵方程
+			\begin{displaymath}
+				Ax=b
+			\end{displaymath}  与向量方程
+			\begin{displaymath}
+			x_1a_1+x_2a_2+\cdots+x_na_n 
+			\end{displaymath}
+			有相同的解集，它又与增广矩阵为\begin{displaymath} \begin{bmatrix}
+			a_1 & a_2 & \cdots & a_n & b
+			\end{bmatrix}\end{displaymath} 
+			的线性方程组有相同解集
+		\end{theorem}
+	
+		\item \begin{theorem}
+		设$ A $是$ m \times n $矩阵，则下列命题是逻辑等价的，也就是说，对某个$ A $，它们都成立或都不成立。
+			\begin{description}
+			\item[a.] 对$\mathbb{R}^n$中的每个$ b $，方程$ Ax=b $有解。
+			\item[b.] $\mathbb{R}^n$中的每个$ b $都是$ A $的列的一个线性组合。
+			\item[c.] $ A $的各列\textbf{生成}$\mathbb{R}^n$。
+			\item[d.] $ A $在每一行都有一个主元位置。
+			\end{description}
+		\end{theorem}
+	
+		\item 若$ A $是$ m \times n $矩阵，$ u\textrm{和}v\textrm{是}\mathbb{R}^n $中的向量，$ c $是标量，则
+			\begin{description}
+				\item[a.] $ A(u+v)=Au+Av $
+				\item[b.] $ A(cu)=c(Au) $
+			\end{description}
+		
+		\item 
 	\end{itemize}
 \end{document}
